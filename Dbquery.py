@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# This is the string library for mysql query's are stored. Basically returning the correct string.
+# This is the string library for mysql query's are stored. Basically returning the correct string. 
 
 import datetime
 
