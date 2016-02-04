@@ -8,8 +8,7 @@ import Dbquery
 from Mydbcon import Mydbcon
 
 def main(com):
-	date = datetime.date.today()
-	date = date.isoformat()
+	date = datetime.date.today().isoformat()
 	q = Dbquery.handler(com)(sys.argv[2:], date)
 	result = Mydbcon().query(q)
 	if result:	
