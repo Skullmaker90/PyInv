@@ -24,3 +24,7 @@ def add_location(params, date):
 	loc, switch, isopen, date = params[0], params[1], params[2], date
 	string = ("""INSERT INTO Pod (Location, Switchport, VerifyDate, IsOpen) VALUES ('%s', '%s', '%s', '%s')""" % (loc, switch, date, isopen))
 	return string
+
+def verify(param):
+	string = ("""SELECT * FROM Pod WHERE Location='%s'""" % (param))
+	return string
