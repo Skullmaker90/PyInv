@@ -12,7 +12,6 @@ def main(com):
 	date = date.isoformat()
 	q = Dbquery.handler(com)(sys.argv[2:], date)
 	result = Mydbcon().query(q)
-	#result = con.query(q)
 	if result:	
 		for i in result:
 			print("Location: " + i[0] + " | Switchport: " + i[1] + " | Date: " + i[2].isoformat() + "\n"
