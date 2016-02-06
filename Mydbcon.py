@@ -30,6 +30,9 @@ class Mydbcon(object):
 
 	def query(self, string):
 		with Controller() as db:
-			if db.execute("""%s""" % (string,)):
-				result = db.fetchall()
-			return result
+			try:
+				if db.execute("""%s""" % (string,)):
+					result = db.fetchall()
+				return result
+			except UnboundLocalError:
+				print("\nThat location has alreaby been checked in/out")
