@@ -13,11 +13,11 @@ def locations(params=None, date=None):
 	return string
 
 def checkout(params, date=None):
-	string = ("""UPDATE Pod SET IsOpen='No' WHERE Location='%s'""" % (params[0],))
+	string = ("""UPDATE Pod SET IsOpen='No', VerifyDate='%s' WHERE Location='%s'""" % (date, params[0],))
 	return string
 
 def checkin(params, date=None):
-	string = ("""UPDATE Pod SET IsOpen='Yes' WHERE Location='%s'""" % (params[0],))
+	string = ("""UPDATE Pod SET IsOpen='Yes', VerifyDate='%s' WHERE Location='%s'""" % (date, params[0]))
 	return string
 
 def add_location(params, date):
@@ -25,6 +25,6 @@ def add_location(params, date):
 	string = ("""INSERT INTO Pod (Location, Switchport, VerifyDate, IsOpen) VALUES ('%s', '%s', '%s', '%s')""" % (loc, switch, date, isopen))
 	return string
 
-def verify(param):
-	string = ("""SELECT * FROM Pod WHERE Location='%s'""" % (param))
+def lookup(params):
+	string = ("""SELECT * FROM Pod WHERE Location='%s'""" % (params))
 	return string
